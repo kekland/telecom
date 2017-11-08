@@ -195,3 +195,9 @@ AR = AN + AS
 
 Скорость выполнения программы - не более 10 секунд
 
+## Examples:
+- [Problem A](http://dep1.iszf.irk.ru/wlcomm/problem_files/1/examples.zip)
+- [Problem B](http://dep1.iszf.irk.ru/wlcomm/problem_files/2/examples.zip)
+- [Problem C](http://dep1.iszf.irk.ru/wlcomm/problem_files/3/examples.zip)
+- [Problem D](http://dep1.iszf.irk.ru/wlcomm/problem_files/4/examples.zip)
+- [Problem E](http://dep1.iszf.irk.ru/wlcomm/problem_files/5/examples.zip)
