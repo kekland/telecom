@@ -1,6 +1,6 @@
 # Telecom - NTI Contest
 ## Status
-**Solved** : 1 / 5
+**Solved** : 2 / 5 (A, B)
 
 **Checked** : 0 / 5
 
@@ -37,7 +37,7 @@ solution.exe <input.dat >output.dat
 
 Скорость выполнения программы - не более 10 секунд
 
-**SOLVED** : NO
+**SOLVED** : YES
 
 **CHECKED** : NO
 
