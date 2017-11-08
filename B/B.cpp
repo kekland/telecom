@@ -3,7 +3,7 @@
 using namespace std;
 
 vector<int> numbers;
-
+bool primeNumbers[100001];
 bool isPrime(int n)
 {
   for (int i = 2; i <= sqrt(n); i++)
@@ -14,6 +14,16 @@ bool isPrime(int n)
     }
   }
   return true;
+}
+
+void count() {
+  for(int i = 100003; i <= 199999; i++) {
+    primeNumbers[i - 100003] = isPrime(i);
+  }
+}
+
+bool getPrime(int num) {
+  return primeNumbers[num - 100003];
 }
 
 int power(int a, int b)
@@ -59,7 +69,9 @@ int main(int argv, char *args[])
   freopen("input.dat", "r", stdin);
   freopen("output.dat", "w", stdout);
 
-  //count();
+  count();
+
+
 
   for (int i = 0; i < 1000; i++)
   {
@@ -68,10 +80,15 @@ int main(int argv, char *args[])
 
     bool ok = false;
 
-    if (isPrime(stoif(num)))
-    {
-      cout << num << endl;
-      continue;
+    int primeCnt = 0;
+    int primeNum = 0;
+
+    int inum = stoif(num);
+    if(inum >= 100003 && inum <= 199999) {
+      if (getPrime(inum))  {
+        cout << inum << endl;
+        continue;
+      }
     }
 
     for (int j = 5; j >= 0; j--)
@@ -79,16 +96,18 @@ int main(int argv, char *args[])
       int subtracted = stoif(subtract(num, j));
       if (subtracted >= 100003 && subtracted <= 199999)
       {
-        if (isPrime(subtracted))
+        if (getPrime(subtracted))
         {
-          cout << subtracted << endl;
-          ok = true;
-          break;
+          primeCnt++;
+          primeNum = subtracted;
         }
       }
     }
 
-    if (!ok)
+    if (primeCnt == 1) {
+      cout << primeNum << endl;
+    }
+    else
     {
       cout << num << "*" << endl;
     }
