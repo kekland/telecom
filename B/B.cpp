@@ -72,7 +72,7 @@ int main(int argv, char *args[])
     {
       cout << num << endl;
       continue;
-    } 
+    }
 
     for (int j = 5; j >= 0; j--)
     {

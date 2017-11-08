@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
 
+//Checker for task B
+//Takes program output and correct output and compares each line - prints into STDOUT if detects errors
+
 using namespace std;
 int main(int argv, char* args[]) {
   ifstream progin("output.dat", ifstream::in);
@@ -20,5 +23,4 @@ int main(int argv, char* args[]) {
     }
   }
   cout << "Finished, error count: " << errcnt;
-
 }
