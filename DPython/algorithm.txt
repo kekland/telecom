@@ -1,0 +1,11 @@
+Algorithm :
+Input -> Encoding blocks -> Mix -> Decoding blocks -> Output
+
+Input == Output
+
+Block :
+BLOCK_ID;DATA
+
+Data encoding :
+
+Data decoding :
