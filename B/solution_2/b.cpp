@@ -66,8 +66,8 @@ string subtract(string s, int index)
 }
 int main(int argv, char *args[])
 {
-  freopen("input.dat", "r", stdin);
-  freopen("output.dat", "w", stdout);
+  //freopen("input.dat", "r", stdin);
+  //freopen("output.dat", "w", stdout);
 
   count();
 
