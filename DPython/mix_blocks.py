@@ -2,15 +2,15 @@ import sys
 import os
 import random
 
-inputFileName = sys.argv[0]
-outputFileName = sys.argv[1]
+inputFileName = sys.argv[1]
+outputFileName = sys.argv[2]
 
 path = os.path.dirname(os.path.abspath(__file__))
 
 inputFile = open(os.path.join(path, inputFileName), 'r')
 outputFile = open(os.path.join(path, outputFileName), 'w')
 
-blocks = inputFile.read().split(',')
+blocks = inputFile.read().split('\n')
 
 blocks.sort()
 
