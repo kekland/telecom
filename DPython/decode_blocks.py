@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import sys
 
@@ -13,22 +15,26 @@ path = os.path.dirname(os.path.abspath(__file__))
 inputFile = open(os.path.join(path, inputFileName), 'r')
 outputFile = open(os.path.join(path, outputFileName), 'w')
 
-blocks = inputFile.read().split('\n')
+blocks = inputFile.read().split('▓')
 
-
-for i in range(len(blocks) - 1):
+for i in range(len(blocks)):
     block = blocks[i]
-    blockId = str()
+    if len(block) == 0:
+        continue
 
+    blockId = str()
     for j in range(len(block)):
-        if block[j] == ';':
+        if block[j] == '░':
+            print(blockId)
             endBlocks[int(blockId)] = block[j + 1:]
             break
 
         blockId += block[j]
+
     size += 1
 
 for i in range(size):
     if len(str(endBlocks[i])) == 0:
         continue
-    outputFile.write(str(endBlocks[i]) + "\n")
+    #print(endBlocks[i])
+    outputFile.write(str(endBlocks[i]))

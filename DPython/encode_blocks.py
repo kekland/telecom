@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import sys
 import os
 
@@ -9,9 +11,21 @@ path = os.path.dirname(os.path.abspath(__file__))
 inputFile = open(os.path.join(path, inputFileName), 'r')
 outputFile = open(os.path.join(path, outputFileName), 'w')
 
-blocks = inputFile.read().split('\n')
+input = str(inputFile.read())
 
-for i in range(len(blocks)):
-    if len(blocks[i]) == 0:
-        continue
-    outputFile.write(str(i) + ';' + blocks[i] + '\n')
+s = str()
+pref = "▓0░"
+cnt = 0
+tx = str()
+for i in range(len(input)):
+    s += input[i]
+    if len(pref) + len(s) == 54:
+        tx += pref + s
+        cnt += 1
+        s = ""
+        pref = "▓" + str(cnt) + "░"
+
+if len(s) != 0:
+    tx += pref + s
+
+outputFile.write(tx)
