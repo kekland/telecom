@@ -14,7 +14,7 @@ outputFile = open(os.path.join(path, outputFileName), 'w')
 input = str(inputFile.read())
 
 s = str()
-pref = "▓0░"
+pref = "0;"
 cnt = 0
 tx = str()
 for i in range(len(input)):
@@ -23,9 +23,10 @@ for i in range(len(input)):
         tx += pref + s
         cnt += 1
         s = ""
-        pref = "▓" + str(cnt) + "░"
+        pref = "" + str(cnt) + ";"
 
 if len(s) != 0:
     tx += pref + s
+    tx += "0" * (54 - (len(s) + len(pref)))
 
 outputFile.write(tx)
