@@ -3,6 +3,7 @@
 using namespace std;
 
 vector<string> blocks;
+bool COMPRESS_DATA = false;
 int main(int argc, char* argv[]) {
   //freopen(argv[1], "r", stdin);
   //freopen(argv[2], "w", stdout);
