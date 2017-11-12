@@ -5,21 +5,30 @@ using namespace std;
 vector<string> blocks;
 
 int main(int argc, char* argv[]) {
-  freopen(argv[1], "r", stdin);
-  freopen(argv[2], "w", stdout);
+  srand(time(NULL));
+  ifstream inputFile(argv[1]);
+  ofstream outputFile(argv[2]);
 
-  while(!cin.eof()) {
-    string ln;
-    getline(cin, ln);
-    blocks.push_back(ln);
+  stringstream stream;
+  stream << inputFile.rdbuf();
+
+  string input = stream.str();
+  string curr = "";
+  int index = 0;
+
+  for(int i = 0; i < input.size(); i++) {
+    char x = input[i];
+    curr += x;
+    if(curr.size() == 54) {
+      blocks.push_back(curr);
+      index++;
+      curr = "";
+    }
   }
 
-  sort(blocks.begin(), blocks.end());
-  for(int i = 0; i < rand() % 10; i++) {
-    next_permutation(blocks.begin(), blocks.end());
-  }
+  random_shuffle(blocks.begin(), blocks.end());
+
   for(int i = 0; i < blocks.size(); i++) {
-    if(blocks[i].size() == 0) {continue;}
-    cout << blocks[i] << endl;
+    outputFile << blocks[i];
   }
 }

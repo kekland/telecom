@@ -14,32 +14,46 @@ int stoif(string s)
   return res;
 }
 
-int size = 0;
 string endblocks[500000];
 int main(int argc, char* argv[]) {
-  freopen(argv[1], "r", stdin);
-  freopen(argv[2], "w", stdout);
+  //freopen(argv[1], "r", stdin);
+  //freopen(argv[2], "w", stdout);
 
-  while(!cin.eof()) {
-    string ln;
-    getline(cin, ln);
-    string blockId = "";
+  ifstream inputFile(argv[1]);
+  ofstream outputFile(argv[2]);
 
-    if(ln.size() == 0) {
-      continue;
-    }
+  stringstream stream;
+  stream << inputFile.rdbuf();
 
-    for(int i = 0; i < ln.size(); i++) {
-      if(ln[i] == ';') {
-        endblocks[stoif(blockId)] = ln.substr(i + 1);
-        break;
+  string input = stream.str();
+  string curr = "";
+  int index = 0;
+
+  for(int i = 0; i < input.size(); i++) {
+    char x = input[i];
+    curr += x;
+    if(curr.size() == 54) {
+      for(int j = 0; j < curr.size(); j++) {
+        if(curr[j] == ';') {
+          endblocks[stoif(curr.substr(0, j))] = curr.substr(j + 1);
+          index++;
+          curr = "";
+          break;
+        }
       }
-      blockId += ln[i];
     }
-    size++;
   }
 
-  for(int i = 0; i < size; i++) {
-    cout << endblocks[i] << endl;
+  string last = endblocks[index - 1];
+
+  for(int i = last.size() - 1; i >= 0; i--) {
+    if(last[i] != '0') {
+      endblocks[index - 1] = last.substr(0, i + 1);
+      break;
+    }
+  }
+
+  for(int i = 0; i < index; i++) {
+    outputFile << endblocks[i];
   }
 }
