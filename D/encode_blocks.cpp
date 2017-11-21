@@ -4,6 +4,20 @@ using namespace std;
 
 vector<string> blocks;
 bool COMPRESS_DATA = false;
+
+string itos(int n) {
+  string s = "";
+
+  while(n > 0) {
+    s += (char)((n % 10) + '0');
+    n /= 10;
+  }
+
+  for(int i = 0; i < s.size() / 2; i++) {
+    swap(s[i], s[s.size() - i - 1]);
+  }
+  return s;
+}
 int main(int argc, char* argv[]) {
   //freopen(argv[1], "r", stdin);
   //freopen(argv[2], "w", stdout);
@@ -27,7 +41,7 @@ int main(int argc, char* argv[]) {
       output += prefix + curr;
       curr = "";
       index++;
-      prefix = to_string(index) + ";";
+      prefix = itos(index) + ";";
     }
   }
   if(curr.size() != 0) {
