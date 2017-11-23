@@ -1,8 +1,10 @@
 # Telecom - NTI Contest
 ## Status
-**Solved** : 2 / 5 (A, B)
+**Solved** : 3 / 5 (A, B, D)
 
-**Checked** : 0 / 5
+**Checked** : 2 / 5 (A, B)
+
+**Pending** : 1 (D)
 
 ## Website
 [Website](http://dep1.iszf.irk.ru/wlcomm/)
