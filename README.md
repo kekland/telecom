@@ -2,9 +2,9 @@
 ## Status
 **Solved** : 3 / 5 (A, B, D)
 
-**Checked** : 2 / 5 (A, B)
+**Checked** : 3 / 5 (A, B, D)
 
-**Pending** : 1 (D)
+**Pending** : 0
 
 ## Website
 [Website](http://dep1.iszf.irk.ru/wlcomm/)
